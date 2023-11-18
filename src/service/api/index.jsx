@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const baseurl = "https://dinesh-motors.onrender.com";
+const baseurl = "https://dinesh-motors.onrender.com/";
 
 
 export const DataRequest = async (method, url, postdata) => {
