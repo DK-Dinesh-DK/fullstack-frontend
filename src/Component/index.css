@@ -1,0 +1,51 @@
+.modal {
+  display: flex !important;
+  align-items: center !important;
+  justify-content: center !important;
+}
+.modal-content {
+  border-radius: 30px !important;
+}
+.modal-div {
+  display: flex !important;
+  justify-content: center !important;
+  flex-direction: column;
+  align-items: center !important;
+  height: 250px;
+  width: 350px;
+  border-radius: 30px;
+  row-gap: 30px;
+}
+@media screen and (max-width: 450px) {
+  .modal-div {
+    width: 300px !important;
+  }
+}
+.input-container {
+  background-color: bisque;
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 10px 0;
+  flex-direction: row;
+}
+
+.MuiInputBase-root
+  .MuiInput-root
+  .MuiInput-underline
+  .MuiInputBase-colorPrimary {
+  text-align: center !important;
+}
+.MuiFormLabel-root {
+  color: blue !important;
+}
+
+.example-header {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+  font-size: 13px;
+  margin-bottom: 5px;
+}
+.ag-header-cell-label {
+  justify-content: center;
+}
