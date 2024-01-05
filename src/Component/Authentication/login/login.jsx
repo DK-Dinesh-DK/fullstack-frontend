@@ -25,25 +25,32 @@ function Login() {
   };
 
   const loginuser = async () => {
-    var res = await DataRequest("post", userApiUrl.userLogin, {
-      userName: userName,
-      userPassword: password,
-    });
-    console.log("---- login res", res);
-    if (res.data.token) {
-      sessionStorage.setItem("token", res.data.token);
-      sessionStorage.setItem("userName", res.data.result.username);
-      sessionStorage.setItem("isadmin", res.data.isAdmin);
-      navigate("/dashboard-table");
-    } else if (res.data.status === 401) {
+    try {
+      var res = await DataRequest("post", userApiUrl.userLogin, {
+        userName: userName,
+        userPassword: password,
+      });
+      console.log("---- login res", res);
+      if (res.data.token) {
+        sessionStorage.setItem("token", res.data.token);
+        sessionStorage.setItem("userName", res.data.result.username);
+        sessionStorage.setItem("isadmin", res.data.isAdmin);
+        navigate("/dashboard-table");
+      } else if (res.data.status === 401) {
+        setOpenModal(!openModal);
+        setMessage(res.data.message);
+      } else if (res.data.status === 402) {
+        setOpenModal(!openModal);
+        setMessage(res.data.message);
+      } else if (res.data.status === 450) {
+        setOpenModal(!openModal);
+        setMessage("You Don't have the Access");
+      }
+    } catch {
       setOpenModal(!openModal);
-      setMessage(res.data.message);
-    } else if (res.data.status === 402) {
-      setOpenModal(!openModal);
-      setMessage(res.data.message);
-    }else if (res.data.status === 450) {
-      setOpenModal(!openModal);
-      setMessage("You Don't have the Access");
+      setMessage(
+        "Something went Wrong Try Again Later or Check Your Login Details"
+      );
     }
   };
   const NavigateForget = () => {

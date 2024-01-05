@@ -2,10 +2,8 @@ import axios from "axios";
 
 const baseurl = "https://dinesh-motors.onrender.com/";
 
-
 export const DataRequest = async (method, url, postdata) => {
   var Token = sessionStorage.getItem("token");
-
 
   var data = JSON.stringify(postdata);
   var config = {
