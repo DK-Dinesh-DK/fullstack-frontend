@@ -22,7 +22,7 @@ function App() {
           <Route path="/register" element={<Register />} />
           <Route
             path="/forgotpassowrd"
-            element={<SecuredRoutes Component={<ForgotPassword />} />}
+            element={<ForgotPassword />}
           />
           <Route
             path="/dashboard-table/*"
